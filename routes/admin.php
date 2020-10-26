@@ -13,5 +13,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::post('logout', 'LoginController@logout')->name('admin.logout');
         Route::get('/change/password/form', 'LoginController@changePasswordForm')->name('admin.change_password_form');
         Route::post('/change/password', 'LoginController@changePassword')->name('admin.change_password');
+
+        // Homepage
+        Route::group(['namespace' => 'Home'], function () {
+            Route::get('home', 'HomeController@index')->name('admin.web');
+        });
     });
 });

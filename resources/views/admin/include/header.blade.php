@@ -78,18 +78,18 @@
             <br />
 
             <!-- sidebar menu -->
-            {{-- <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
                   <li><a href="{{ route('admin.deshboard')}}"><i class="fa fa-home"></i> Home </a></li>
                   <li>
-                      <a><i class="fa fa-users" aria-hidden="true"></i> User <span class="fa fa-chevron-down"></span></a>
+                      <a><i class="fa fa-users" aria-hidden="true"></i> Frontend CMS <span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
-                        <li><a href="{{ route('admin.user')}}">All Users</a></li>
+                        <li><a href="{{ route('admin.web')}}">Frontend</a></li>
                       </ul>
                   </li>
-                  <li>
+                  {{-- <li>
                       <a><i class="fa fa-first-order" aria-hidden="true"></i> Order <span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
                         <li><a href="{{ route('admin.order')}}">All Orders</a></li>
@@ -131,12 +131,14 @@
                       <li><a href="{{ route('admin.package_list')}}">Package List</a></li>
                     </ul>
                 </li>
-                  <li><a href="{{route('admin.change_password_form')}}"><i class="fa fa-key" aria-hidden="true"></i>Change Password</a></li>
+                <li>
+                      <a href="{{route('admin.change_password_form')}}"><i class="fa fa-key" aria-hidden="true"></i>Change Password</a>
+                </li> --}}
 
                 </ul>
               </div>
 
-            </div> --}}
+            </div>
           </div>
             <!-- /sidebar menu -->
 
