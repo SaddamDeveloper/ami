@@ -11,16 +11,16 @@
     <link rel="icon" href="{{ asset('/logo/favicon.png')}}" type="image/icon type">
 
     <!-- Bootstrap -->
-    <link href="{{asset('admin/vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('common/vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="{{asset('admin/vendors/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{asset('common/vendors/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
     <!-- NProgress -->
-    <link href="{{asset('admin/vendors/nprogress/nprogress.css')}}" rel="stylesheet">
+    <link href="{{asset('common/vendors/nprogress/nprogress.css')}}" rel="stylesheet">
     <!-- Animate.css -->
-    <link href="{{asset('admin/vendors/animate.css/animate.min.css')}}" rel="stylesheet">
+    <link href="{{asset('common/vendors/animate.css/animate.min.css')}}" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="{{asset('admin/build/css/custom.min.css')}}" rel="stylesheet">
+    <link href="{{asset('common/build/css/custom.min.css')}}" rel="stylesheet">
   </head>
 
   <body class="login" style="background: #d0e0ef;">
@@ -32,15 +32,9 @@
         <div class="animate form login_form">
           <section class="login_content">
             <div>
-              @if (Session::has('message'))
-                  <div class="alert alert-success" >{{ Session::get('message') }}</div>
-              @endif
-              @if (Session::has('error'))
-                  <div class="alert alert-danger" >{{ Session::get('error') }}</div>
-              @endif
+              @include('common.error')
             </div>
-            {{ Form::open(array('url' => 'login', 'method' => 'post')) }}
-
+            {{ Form::open(array('url' => 'admin/login', 'method' => 'post')) }}
               <h1>Admin Login Form</h1>
               <div>
                 {{ Form::email('email', '',array('class' => 'form-control','placeholder'=>'Enter Email','required')) }}
