@@ -17,6 +17,21 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         // Homepage
         Route::group(['namespace' => 'Home'], function () {
             Route::get('home', 'HomeController@index')->name('admin.web');
+            Route::post('store', 'HomeController@store')->name('admin.store_home');
+
+            // Slider
+            Route::group(['namespace' => 'Slider'], function () {
+                Route::resource('slider', 'SliderController');
+                Route::get('/list/data', 'SliderController@list')->name('admin.ajax.slider_list');
+                Route::get('/status/{id}/{status}', 'SliderController@status')->name('slider.status');
+            });
         });
+
+        // Pages
+        Route::group(['namespace' => 'Page'], function () {
+            Route::get('page', 'PagesController@index')->name('admin.page');
+        });
+
+        // Slider
     });
 });

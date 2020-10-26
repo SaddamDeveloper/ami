@@ -4,19 +4,19 @@
           <div class="col-lg-3 col-md-6 col-sm-12">
              <div class="footer_title">
                 <h2>About us</h2>
-                <p>Lonec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id ultricies vehicula ut id elit. Integer posuere erat</p>
+                <p>{{ !empty($frontend) ? $frontend->about : '' }}</p>
                 <ul class="social_icon">
                    <li>
-                      <a href="javascript:void(0)"><i class="fa fa-facebook"></i></a>
+                      <a href="{{ !empty($frontend) ? $frontend->fb_id : '#' }}"><i class="fa fa-facebook"></i></a>
                    </li>
                    <li>
-                      <a href="javascript:void(0)"><i class="fa fa-twitter"></i></a>
+                      <a href="{{ !empty($frontend) ? $frontend->tw_id : '#' }}"><i class="fa fa-twitter"></i></a>
                    </li>
                    <li>
-                      <a href="javascript:void(0)"><i class="fa fa-skype"></i></a>
+                      <a href="{{ !empty($frontend) ? $frontend->yt_id : '#' }}"><i class="fa fa-skype"></i></a>
                    </li>
                    <li>
-                      <a href="javascript:void(0)"><i class="fa fa-pinterest"></i></a>
+                      <a href="{{ !empty($frontend) ? $frontend->sk_id : '#' }}"><i class="fa fa-pinterest"></i></a>
                    </li>
                 </ul>
              </div>
@@ -25,7 +25,7 @@
              <div class="footer_title">
                 <h2>Quick Links</h2>
                 <ul class="footer_link">
-                   <li><a href="index.html"><i class="fa fa-chevron-right"></i> Home</a></li>
+                   <li><a href="{{ route('web.index') }}"><i class="fa fa-chevron-right"></i> Home</a></li>
                    <li><a href="course-grid.html"><i class="fa fa-chevron-right"></i> Courses</a></li>
                    <li><a href="event.html"><i class="fa fa-chevron-right"></i> Events</a></li>
                    <li><a href="gallery-1.html"><i class="fa fa-chevron-right"></i> Gallery</a></li>
@@ -37,23 +37,22 @@
              <div class="footer_title">
                 <h2>Recent Events</h2>
                 <ul class="event_blog">
-                   <li><a href="event-detail.html" class="custom_hover_img"><img src="assets/images/event/event_1.png" alt="event" class="img-responsive"></a></li>
-                   <li><a href="event-detail.html" class="custom_hover_img"><img src="assets/images/event/event_2.png" alt="event" class="img-responsive"></a></li>
-                   <li><a href="event-detail.html" class="custom_hover_img"><img src="assets/images/event/event_3.png" alt="event" class="img-responsive"></a></li>
-                   <li><a href="event-detail.html" class="custom_hover_img"><img src="assets/images/event/event_4.png" alt="event" class="img-responsive"></a></li>
-                   <li><a href="event-detail.html" class="custom_hover_img"><img src="assets/images/event/event_5.png" alt="event" class="img-responsive"></a></li>
-                   <li><a href="event-detail.html" class="custom_hover_img"><img src="assets/images/event/event_6.png" alt="event" class="img-responsive"></a></li>
+                   <li><a href="event-detail.html" class="custom_hover_img"><img src="{{ asset('web/assets/images/event/event_1.png') }}" alt="event" class="img-responsive"></a></li>
+                   <li><a href="event-detail.html" class="custom_hover_img"><img src="{{ asset('web/assets/images/event/event_2.png') }}" alt="event" class="img-responsive"></a></li>
+                   <li><a href="event-detail.html" class="custom_hover_img"><img src="{{ asset('web/assets/images/event/event_3.png') }}" alt="event" class="img-responsive"></a></li>
+                   <li><a href="event-detail.html" class="custom_hover_img"><img src="{{ asset('web/assets/images/event/event_4.png') }}" alt="event" class="img-responsive"></a></li>
+                   <li><a href="event-detail.html" class="custom_hover_img"><img src="{{ asset('web/assets/images/event/event_5.png') }}" alt="event" class="img-responsive"></a></li>
+                   <li><a href="event-detail.html" class="custom_hover_img"><img src="{{ asset('web/assets/images/event/event_6.png') }}" alt="event" class="img-responsive"></a></li>
                 </ul>
              </div>
           </div>
           <div class="col-lg-3 col-md-6 col-sm-12">
              <div class="footer_title">
                 <h2>Contact</h2>
-                <p>PO Box UN152468, 1 Street North, New Towm, California, USA</p>
+                <p>{{ !empty($frontend) ? $frontend->address : '' }}</p>
                 <ul class="contact_us">
-                   <li>Phone : <a href="tel:+9170124565789">7 (012) 4565 789</a></li>
-                   <li>Fax : <a href="javascript:void(0)">7 (012) 4565 789</a></li>
-                   <li>Email : <a href="mailto:info@info.com">info@info.com</a></li>
+                   <li>Phone : <a href="tel:+91-{{ !empty($frontend) ? $frontend->mobile : '' }}">{{ !empty($frontend) ? $frontend->mobile : '' }}</a></li>
+                   <li>Email : <a href="mailto:{{ !empty($frontend) ? $frontend->email : '' }}">{{ !empty($frontend) ? $frontend->email : '' }}</a></li>
                 </ul>
              </div>
           </div>

@@ -1,126 +1,23 @@
 @extends('web.template.master')
 @section('content')
-    <div id="loader-wrapper">
-    <div id="loader"></div>
-    <div class="loader-section section-left"></div>
-    <div class="loader-section section-right"></div>
-    </div>
-    <header id="header" class="header_1 header_2">
-    <div class="toolbar d-none d-lg-block">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 hidden-xs">
-                <div class="thim-have-any-question">
-                    <div class="mobile"><i class="fa fa-phone m-r-5"></i><a class="value" href="tel:+9100123456789"> (00) 123 456 789</a></div>
-                </div>
-                </div>
-                <div class="col-sm-6">
-                <div class="child_login pull-right">
-                    <i class="fa fa-clock-o"></i> Mon - Fri : 9.00AM - 06.00PM
-                    <a href="javascript:void(0)" class="register m-l-10 js-modal-show">Register</a>
-                    <a href="javascript:void(0)" class="login js-modal-show">Login</a>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="study_nav">
-        <div class="container">
-            <nav class="navbar navbar-expand-md navbar-light bg-faded mb-0 ">
-                <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="Main Logo"></a>
-                <div class="collapse navbar-collapse main-menu" id="navbarSupportedContent">
-                <ul class="navbar-nav nav lavalamp ml-auto menu main_menu">
-                    <li class="nav-item single_nav menu-item"><a href="index.html" class="nav-link current">Home</a> </li>
-                    <li class="nav-item single_nav menu-item"><a href="about.html" class="nav-link">About Us</a></li>
-                    <li class="nav-item single_nav">
-                        <a href="javascript:void(0)" class="nav-link">Courses</a>
-                        <ul class="navbar-nav nav mx-auto">
-                            <li class="nav-item"><a href="course-grid.html" class="nav-link">Course Grid</a></li>
-                            <li class="nav-item"><a href="course-single.html" class="nav-link">Course Single</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item single_nav">
-                        <a href="javascript:void(0)" class="nav-link dropdown_icon">Teachers</a>
-                        <ul class="navbar-nav nav mx-auto">
-                            <li class="nav-item"><a href="teacher.html" class="nav-link">Teacher</a></li>
-                            <li class="nav-item"><a href="teacher-profile.html" class="nav-link">Teacher Profile</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item single_nav">
-                        <a href="javascript:void(0)" class="nav-link">Gallery</a>
-                        <ul class="navbar-nav nav mx-auto">
-                            <li class="nav-item"><a href="gallery-one.html" class="nav-link">Gallery Style 1</a></li>
-                            <li class="nav-item"><a href="gallery-two.html" class="nav-link">Gallery Style 2</a></li>
-                            <li class="nav-item"><a href="gallery-three.html" class="nav-link">Gallery Style 3</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item single_nav">
-                        <a href="javascript:void(0)" class="nav-link">Events</a>
-                        <ul class="navbar-nav nav mx-auto">
-                            <li class="nav-item"><a href="event.html" class="nav-link">Events</a></li>
-                            <li class="nav-item"><a href="event-detail.html" class="nav-link">Events Detail</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item single_nav">
-                        <a href="javascript:void(0)" class="nav-link">Blog</a>
-                        <ul class="navbar-nav nav mx-auto">
-                            <li class="nav-item"><a href="blog-grid.html" class="nav-link">Blog Grid</a></li>
-                            <li class="nav-item"><a href="blog-list.html" class="nav-link">Blog List</a></li>
-                            <li class="nav-item"><a href="blog-detail.html" class="nav-link">Blog Detail</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item single_nav">
-                        <a href="javascript:void(0)" class="nav-link">Contact</a>
-                        <ul class="navbar-nav nav mx-auto">
-                            <li class="nav-item"><a href="contact-style-one.html" class="nav-link">Contact Style 1</a></li>
-                            <li class="nav-item"><a href="contact-style-two.html" class="nav-link">Contact Style 2</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                </div>
-            </nav>
-        </div>
-    </div>
-    </header>
     <section class="banner text-center p-0">
     <div class="container-fulid">
         <div id="banner-slider" class="owl-carousel owl-theme">
-            <div class="banner-slide d-flex align-items-center" style="background-image: url(assets/images/banner-1.png)">
-                <div class="banner-text w-100">
-                <h1>Wel Come To Study Point</h1>
-                <p class="info-text-slider text-white my-4" ">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt<br />
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                </p>
-                <a href="javascript:void(0)" class="btn btn-default custom_btn">Buy Now</a>
+            @forelse ($sliders as $slider)
+                <div class="banner-slide d-flex align-items-center" style="background-image: url({{ asset('admin/images/slider/'.$slider->main_image) }})">
+                    <div class="banner-text w-100">
+                    <h1>{{ $slider->title }}</h1>
+                    <p class="info-text-slider text-white my-4" ">
+                        {{ $slider->sub_title }}
+                    </p>
+                    <a href="javascript:void(0)" class="btn btn-default custom_btn">Contact Us</a>
+                    </div>
                 </div>
+            @empty
+            <div class="banner-slide d-flex align-items-center">
+                No Banners Yet! Hold On
             </div>
-            <div class="banner-slide d-flex align-items-center" style="background-image: url(assets/images/banner-2.png)">
-                <div class="banner-text w-100">
-                <h1>Open the World of Opportunies!</h1>
-                <p class="info-text-slider text-white my-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt<br />
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                </p>
-                <a href="javascript:void(0)" class="btn btn-default custom_btn">Buy Now</a>
-                </div>
-            </div>
-            <div class="banner-slide d-flex align-items-center" style="background-image: url(assets/images/banner-3.png)">
-                <div class="banner-text w-100">
-                <h1>Open the World of Opportunies!</h1>
-                <p class="info-text-slider text-white my-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt<br />
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                </p>
-                <a href="javascript:void(0)" class="btn btn-default custom_btn">Buy Now</a>
-                </div>
-            </div>
-            <div class="banner-slide d-flex align-items-center" style="background-image: url(assets/images/banner-4.png)">
-                <div class="banner-text w-100">
-                <h1>Open the World of Opportunies!</h1>
-                <p class="info-text-slider text-white my-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt<br />
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                </p>
-                <a href="javascript:void(0)" class="btn btn-default custom_btn">Buy Now</a>
-                </div>
-            </div>
+            @endforelse
         </div>
     </div>
     </section>
@@ -242,7 +139,7 @@
                 <div class="row m-b-30">
                 <div class="col-4 col-sm-4">
                     <div class="teachers_pro custom_hover_img">
-                        <img src="assets/images/teachers/teacher-1.jpg" alt="Teacher Profile" class="img-responsive" />
+                        <img src="{{ asset('web/assets/images/teachers/teacher-1.jpg') }}" alt="Teacher Profile" class="img-responsive" />
                     </div>
                 </div>
                 <div class="col-8 col-sm-8">
@@ -261,7 +158,7 @@
                 <div class="row">
                 <div class="col-4 col-sm-4">
                     <div class="teachers_pro custom_hover_img">
-                        <img src="assets/images/teachers/teacher-2.jpg" alt="Teacher Profile" class="img-responsive" />
+                        <img src="{{ asset('web/assets/images/teachers/teacher-2.jpg') }}" alt="Teacher Profile" class="img-responsive" />
                     </div>
                 </div>
                 <div class="col-8 col-sm-8">
@@ -282,7 +179,7 @@
                 <div class="row m-b-30">
                 <div class="col-4 col-sm-4">
                     <div class="teachers_pro custom_hover_img">
-                        <img src="assets/images/teachers/teacher-3.jpg" alt="Teacher Profile" class="img-responsive" />
+                        <img src="{{ asset('web/assets/images/teachers/teacher-3.jpg') }}" alt="Teacher Profile" class="img-responsive" />
                     </div>
                 </div>
                 <div class="col-8 col-sm-8">
@@ -301,7 +198,7 @@
                 <div class="row">
                 <div class="col-4 col-sm-4">
                     <div class="teachers_pro custom_hover_img">
-                        <img src="assets/images/teachers/teacher-4.jpg" alt="Teacher Profile" class="img-responsive" />
+                        <img src="{{ asset('web/assets/images/teachers/teacher-4.jpg') }}" alt="Teacher Profile" class="img-responsive" />
                     </div>
                 </div>
                 <div class="col-8 col-sm-8">
@@ -370,7 +267,7 @@
                 <div class="latest_news">
                 <div class="new_blgo">
                     <div class="custom_hover_img">
-                        <img src="assets/images/news/news_1.png" alt="News Post" class="img-responsive">
+                        <img src="{{ asset('web/assets/images/news/news_1.png') }}" alt="News Post" class="img-responsive">
                     </div>
                     <div class="news_date">
                         <h3 class="datesection">05 </h3>
@@ -388,7 +285,7 @@
                 <div class="latest_news">
                 <div class="new_blgo">
                     <div class="custom_hover_img">
-                        <img src="assets/images/news/news_2.png" alt="News Post" class="img-responsive">
+                        <img src="{{ asset('web/assets/images/news/news_2.png') }}" alt="News Post" class="img-responsive">
                     </div>
                     <div class="news_date">
                         <h3 class="datesection">05 </h3>
@@ -406,7 +303,7 @@
                 <div class="latest_news">
                 <div class="new_blgo">
                     <div class="custom_hover_img">
-                        <img src="assets/images/news/news_3.png" alt="News Post" class="img-responsive">
+                        <img src="{{ asset('web/assets/images/news/news_3.png') }}" alt="News Post" class="img-responsive">
                     </div>
                     <div class="news_date">
                         <h3 class="datesection">05 </h3>
@@ -424,7 +321,7 @@
                 <div class="latest_news">
                 <div class="new_blgo">
                     <div class="custom_hover_img">
-                        <img src="assets/images/news/news_1.png" alt="News Post" class="img-responsive">
+                        <img src="{{ asset('web/assets/images/news/news_1.png') }}" alt="News Post" class="img-responsive">
                     </div>
                     <div class="news_date">
                         <h3 class="datesection">05 </h3>
@@ -442,7 +339,7 @@
                 <div class="latest_news">
                 <div class="new_blgo">
                     <div class="custom_hover_img">
-                        <img src="assets/images/news/news_2.png" alt="News Post" class="img-responsive">
+                        <img src="{{ asset('web/assets/images/news/news_2.png') }}" alt="News Post" class="img-responsive">
                     </div>
                     <div class="news_date">
                         <h3 class="datesection">05 </h3>
@@ -460,7 +357,7 @@
                 <div class="latest_news">
                 <div class="new_blgo">
                     <div class="custom_hover_img">
-                        <img src="assets/images/news/news_3.png" alt="News Post" class="img-responsive">
+                        <img src="{{ asset('web/assets/images/news/news_3.png') }}" alt="News Post" class="img-responsive">
                     </div>
                     <div class="news_date">
                         <h3 class="datesection">05 </h3>
@@ -484,19 +381,19 @@
         <div class="logo-slider-block">
             <div id="logo-slider" class="owl-carousel owl-theme">
                 <div>
-                <a class="logo-block" href="javascript:void(0)"><img src="assets/images/logo.png" alt="company logo"></a>
+                <a class="logo-block" href="javascript:void(0)"><img src="{{ !empty($frontend) ? asset('admin/homepage/').'/'.$frontend->logo : '#' }}" alt="company logo"></a>
                 </div>
                 <div>
-                <a class="logo-block" href="javascript:void(0)"><img src="assets/images/logo.png" alt="company logo"></a>
+                <a class="logo-block" href="javascript:void(0)"><img src="{{ !empty($frontend) ? asset('admin/homepage/').'/'.$frontend->logo : '#' }}" alt="company logo"></a>
                 </div>
                 <div>
-                <a class="logo-block" href="javascript:void(0)"><img src="assets/images/logo.png" alt="company logo"></a>
+                <a class="logo-block" href="javascript:void(0)"><img src="{{ !empty($frontend) ? asset('admin/homepage/').'/'.$frontend->logo : '#' }}" alt="company logo"></a>
                 </div>
                 <div>
-                <a class="logo-block" href="javascript:void(0)"><img src="assets/images/logo.png" alt="company logo"></a>
+                <a class="logo-block" href="javascript:void(0)"><img src="{{ !empty($frontend) ? asset('admin/homepage/').'/'.$frontend->logo : '#' }}" alt="company logo"></a>
                 </div>
                 <div>
-                <a class="logo-block" href="javascript:void(0)"><img src="assets/images/logo.png" alt="company logo"></a>
+                <a class="logo-block" href="javascript:void(0)"><img src="{{ !empty($frontend) ? asset('admin/homepage/').'/'.$frontend->logo : '#' }}" alt="company logo"></a>
                 </div>
             </div>
         </div>

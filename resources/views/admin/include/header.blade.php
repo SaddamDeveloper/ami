@@ -2,11 +2,9 @@
 <html lang="en">
   	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<!-- Meta, title, CSS, favicons, etc. -->
 		<meta charset="utf-8">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-
 		<!-- CSRF Token -->
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,16 +63,13 @@
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-            {{--   <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
-              </div> --}}
+              <div class="profile_pic">
+                <img src="images/avatar.jpg" alt="..." class="img-circle profile_img">
+              </div>
               <div class="profile_info">
                 <span>Welcome,<b>{{ Auth::guard('admin')->user()->name }}</b></span>
-                
               </div>
             </div>
-            <!-- /menu profile quick info -->
-
             <br />
 
             <!-- sidebar menu -->
@@ -87,14 +82,16 @@
                       <a><i class="fa fa-users" aria-hidden="true"></i> Frontend CMS <span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
                         <li><a href="{{ route('admin.web')}}">Frontend</a></li>
+                        <li><a href="{{ route('slider.index')}}">Slider</a></li>
                       </ul>
                   </li>
-                  {{-- <li>
-                      <a><i class="fa fa-first-order" aria-hidden="true"></i> Order <span class="fa fa-chevron-down"></span></a>
+                  <li>
+                      <a><i class="fa fa-first-order" aria-hidden="true"></i> Navigation<span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
-                        <li><a href="{{ route('admin.order')}}">All Orders</a></li>
+                        <li><a href="{{ route('admin.page')}}">Add Page</a></li>
                       </ul>
                   </li>
+                  {{--
                   <li>
                       <a href="{{ route('admin.getintouch') }}"><i class="fa fa-phone" aria-hidden="true"></i> Get In Touch </a>
                   </li>
@@ -157,7 +154,6 @@
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
-            <!-- /menu footer buttons -->
           </div>
         </div>
 
