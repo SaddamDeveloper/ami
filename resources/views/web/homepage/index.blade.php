@@ -26,7 +26,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="page_tital text-center">
-                <h2> Welcome to University </h2>
+                <h2> Welcome to {{ config('app.name') }} </h2>
                 <hr class="tital_border">
                 <p>Study Point is a international leader in teaching students to write effectively,learn from each other and think for themselves.</p>
                 </div>

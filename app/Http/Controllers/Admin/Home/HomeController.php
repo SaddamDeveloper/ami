@@ -4,14 +4,14 @@ namespace App\Http\Controllers\Admin\Home;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Homepage;
+use App\Models\HomePage;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 
 class HomeController extends Controller
 {
     public function index(){
-        $home = Homepage::first();
+        $home = HomePage::first();
         return view('admin.home.index', compact('home'));
     }
 
@@ -37,7 +37,7 @@ class HomeController extends Controller
             Image::make($image)
             ->resize(346, 252)
             ->save($thumb_path);
-            $frontend = Homepage::find(1);
+            $frontend = HomePage::find(1);
             if($frontend->logo){
                 //Delete
                 $image_path_thumb = "/admin/homepage/thumb/".$frontend->logo;  
@@ -62,7 +62,7 @@ class HomeController extends Controller
             }
         }
 
-        $home = Homepage::find(1);
+        $home = HomePage::find(1);
         $home->mobile = $request->input('mobile');
         $home->address = $request->input('address');
         $home->about = $request->input('about');
