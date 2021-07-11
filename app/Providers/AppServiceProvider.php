@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use App\Models\HomePage;
+use App\Models\Page;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,7 +18,9 @@ class AppServiceProvider extends ServiceProvider
     {
         View::composer('web.include.header', function($view){
             $frontend = HomePage::first();
+            $pages = Page::all();
             $view->with('frontend', $frontend);
+            $view->with('pages', $pages);
         });
         View::composer('web.homepage.index', function($view){
             $frontend = HomePage::first();
@@ -36,6 +39,5 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
     }
 }

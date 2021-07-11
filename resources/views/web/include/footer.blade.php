@@ -157,5 +157,7 @@
  <script src="{{ asset('web/assets/js/jquery.magnific-popup.min.js') }}"></script>
  <script src="{{ asset('web/assets/js/mobilemenu.js') }}"></script>
  <script src="{{ asset('web/assets/js/custom.js') }}"></script>
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+ @stack('script')
 </body>
 </html>

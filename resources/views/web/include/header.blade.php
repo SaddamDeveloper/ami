@@ -45,7 +45,7 @@
                      <div class="col-sm-6">
                      <div class="child_login pull-right">
                          <i class="fa fa-envelope"></i><a class="value" href="mailto:{{ !empty($frontend) ? $frontend->email : '' }}"> {{ !empty($frontend) ? $frontend->email : '' }}</a>
-                         <a href="javascript:void(0)" class="register m-l-10 js-modal-show">Admission</a>
+                         <a href="{{ route('web.admission') }}" class="register m-l-10">Admission</a>
                          <a href="javascript:void(0)" class="login js-modal-show">Login</a>
                      </div>
                      </div>
@@ -59,7 +59,12 @@
                      <div class="collapse navbar-collapse main-menu" id="navbarSupportedContent">
                      <ul class="navbar-nav nav lavalamp ml-auto menu main_menu">
                          <li class="nav-item single_nav menu-item"><a href="{{ route('web.index') }}" class="nav-link current">Home</a> </li>
-                         <li class="nav-item single_nav menu-item"><a href="about.html" class="nav-link">About Us</a></li>
+                         {{-- <li class="nav-item single_nav menu-item"><a href="{{ route('web.about') }}" class="nav-link">About Us</a></li> --}}
+                         {{-- @foreach($pages as $page)
+                         <li class="nav-item single_nav menu-item">
+                             <a class="nav-link" href="{{ $page->uri }}">{{ $page->name }}</a>
+                         </li>
+                        @endforeach --}}
                          <li class="nav-item single_nav">
                              <a href="javascript:void(0)" class="nav-link">Courses</a>
                              <ul class="navbar-nav nav mx-auto">
@@ -97,13 +102,7 @@
                                  <li class="nav-item"><a href="blog-detail.html" class="nav-link">Blog Detail</a></li>
                              </ul>
                          </li>
-                         <li class="nav-item single_nav">
-                             <a href="javascript:void(0)" class="nav-link">Contact</a>
-                             <ul class="navbar-nav nav mx-auto">
-                                 <li class="nav-item"><a href="contact-style-one.html" class="nav-link">Contact Style 1</a></li>
-                                 <li class="nav-item"><a href="contact-style-two.html" class="nav-link">Contact Style 2</a></li>
-                             </ul>
-                         </li>
+                         <li class="nav-item single_nav menu-item"><a href="{{ route('web.verify') }}" class="nav-link">Certificate</a></li>
                      </ul>
                      </div>
                  </nav>

@@ -91,6 +91,12 @@
                         <li><a href="{{ route('admin.page')}}">Add Page</a></li>
                       </ul>
                   </li>
+                  <li><a><i class="fa fa-users"></i> Course <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{route('course.create')}}">Add Course</a></li>
+                      <li><a href="{{route('course.index')}}">Course List</a></li>
+                    </ul>
+                  </li>
                   {{--
                   <li>
                       <a href="{{ route('admin.getintouch') }}"><i class="fa fa-phone" aria-hidden="true"></i> Get In Touch </a>

@@ -32,6 +32,16 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
             Route::get('page', 'PagesController@index')->name('admin.page');
         });
 
-        // Slider
+        // Course
+        Route::group(['namespace' => 'Course', 'prefix' =>'course'], function () {
+            Route::get('create', 'CourseController@create')->name('course.create');
+            Route::post('store', 'CourseController@store')->name('course.store');
+            Route::get('form','CourseController@index')->name('course.index');
+            Route::get('/branch/list', 'CourseController@branchList')->name('course.ajax.list');
+            Route::get('status/{id}/{status}', 'CourseController@status')->name('course.status');
+            Route::get('edit/{id}', 'CourseController@editCourse')->name('course.edit');
+            Route::get('delete/{id}', 'CourseController@destroyCourse')->name('course.destroy');
+            Route::post('update', 'CourseController@updateCourse')->name('course.update');
+        });
     });
 });
